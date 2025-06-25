@@ -1,0 +1,43 @@
+import { MovieEvent } from "@/types/eventTypes";
+
+export const exampleMovies: MovieEvent[] = [
+  {
+    id: 1,
+    type: "movie",
+    title: "Dune: Part Two",
+    location: "Chennai",
+    datetime: "2025-06-25T20:00:00",
+    price: 350,
+    poster: "/images/dune2.jpg",
+    availableSeats: 250,
+    rating: 8.7,
+    language: "English",
+    genre: "Sci-Fi",
+  },
+  {
+    id: 2,
+    type: "movie",
+    title: "Animal",
+    location: "Delhi",
+    datetime: "2025-06-26T13:00:00",
+    price: 300,
+    poster: "/images/animal.jpg",
+    availableSeats: 120,
+    rating: 7.9,
+    language: "Hindi",
+    genre: "Action/Thriller",
+  },
+  {
+    id: 3,
+    type: "movie",
+    title: "Kung Fu Panda 4",
+    location: "Mumbai",
+    datetime: "2025-06-27T11:30:00",
+    price: 280,
+    poster: "/images/kfp4.jpg",
+    availableSeats: 190,
+    rating: 7.2,
+    language: "English",
+    genre: "Animation/Comedy",
+  },
+];

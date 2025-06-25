@@ -1,0 +1,47 @@
+import { TrainEvent } from "@/types/eventTypes";
+
+export const exampleTrains: TrainEvent[] = [
+    {
+      id: 10,
+      type: "train",
+      title: "Chennai Express",
+      location: "Chennai Central",
+      datetime: "2025-06-25T06:00:00",
+      price: 150,
+      poster: "/images/train1.jpg",
+      availableSeats: 100,
+      trainNumber: "12657",
+      departure: "Chennai",
+      destination: "Mumbai",
+      classType: "sleeper",
+    },
+    {
+      id: 11,
+      type: "train",
+      title: "Rajdhani Express",
+      location: "New Delhi Station",
+      datetime: "2025-06-26T09:30:00",
+      price: 1200,
+      poster: "/images/train2.jpg",
+      availableSeats: 50,
+      trainNumber: "12309",
+      departure: "New Delhi",
+      destination: "Kolkata",
+      classType: "AC",
+    },
+    {
+      id: 12,
+      type: "train",
+      title: "Howrah Mail",
+      location: "Howrah Junction",
+      datetime: "2025-06-27T22:00:00",
+      price: 200,
+      poster: "/images/train3.jpg",
+      availableSeats: 80,
+      trainNumber: "12840",
+      departure: "Howrah",
+      destination: "Chennai",
+      classType: "sleeper",
+    },
+  ];
+  
