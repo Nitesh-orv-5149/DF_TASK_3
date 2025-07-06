@@ -83,7 +83,7 @@ export default function SignUp() {
                 name="name"
                 type="text"
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg focus:outline-none transition-all"
+                className="w-full px-4 py-3 rounded-full border focus:outline-none transition-all"
                 placeholder="Enter your full name"
                 required
               />
@@ -97,7 +97,7 @@ export default function SignUp() {
                 name="email"
                 type="email"
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg focus:outline-none transition-all"
+                className="w-full px-4 py-3 rounded-full border focus:outline-none transition-all"
                 placeholder="Enter your email"
                 required
               />
@@ -111,7 +111,7 @@ export default function SignUp() {
                 name="password"
                 type="password"
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg focus:outline-none transition-all"
+                className="w-full px-4 py-3 rounded-full border focus:outline-none transition-all"
                 placeholder="Create a password"
                 required
               />
@@ -152,7 +152,7 @@ export default function SignUp() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 px-4 rounded-lg focus:outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+              className="w-full py-3 px-4 bg-light-2 rounded-full text-dark-2 font-bold hover:bg-light-1/60 focus:outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? "Creating Account..." : "Create Account"}
             </button>

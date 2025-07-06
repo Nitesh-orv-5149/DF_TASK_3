@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
               price_data: {
                 currency: 'inr',
                 product_data: {
-                  name: 'Test Product',
+                  name: 'Event Ticket',
                 },
                 unit_amount: Math.round(price * 100), 
               },

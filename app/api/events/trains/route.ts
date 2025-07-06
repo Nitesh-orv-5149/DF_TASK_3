@@ -4,7 +4,7 @@ import { Train } from "@/libs/database/models/train.model";
 export async function GET() {
   try {
     await connectToDatabase();
-    const trains = await Train.find({}, "title type");
+    const trains = await Train.find({}, "title departure type");
 
     return new Response(JSON.stringify(trains), {
       status: 200,

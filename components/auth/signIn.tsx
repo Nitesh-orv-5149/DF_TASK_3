@@ -47,7 +47,7 @@ export default function SignIn() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border  rounded-lg focus:outline-none transition-all"
+                className="w-full px-4 py-3 border  rounded-full focus:outline-none transition-all"
                 placeholder="Enter your email"
                 required
               />
@@ -61,7 +61,7 @@ export default function SignIn() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 border  rounded-lg focus:outline-none transition-all"
+                className="w-full px-4 py-3 border  rounded-full focus:outline-none transition-all"
                 placeholder="Enter your password"
                 required
               />
@@ -70,7 +70,7 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 px-4 rounded-lg focus:outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+              className="w-full py-3 px-4 bg-light-2 rounded-full text-dark-2 font-bold hover:bg-light-1/60 focus:outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? "Signing In..." : "Sign In"}
             </button>

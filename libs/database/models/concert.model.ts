@@ -11,7 +11,7 @@ const ConcertSchema = new Schema(
     poster: { type: String, required: true },
     performer: { type: String, required: true },
     duration: { type: String }, 
-    avialableSeats: { type: Number, default: 100 }, 
+    availableSeats: { type: Number, default: 100 }, 
     seats: {
       type: [
         {
@@ -22,7 +22,7 @@ const ConcertSchema = new Schema(
       default: () => generateSeats({ rows: 10, cols: 10 }),
     },
   },
-  { timestamps: true, collection: "concerts" }
+  { timestamps: true, collection: "Concerts" }
 );
 
 export const Concert = models.Concert || model("Concert", ConcertSchema);

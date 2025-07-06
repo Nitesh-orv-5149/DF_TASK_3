@@ -2,6 +2,7 @@ import { Search } from "lucide-react";
 import Card from "@/components/ui/Card";
 
 export default function DisplayGrid( {data,clearFilters} : {data:any,clearFilters?:()=>void})  {
+    console.log(data)
     return (
         <>
             {/* events Grid/List */}

@@ -5,7 +5,7 @@ import { Calendar, Clock, MapPin, Star, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { ReactNode, useState } from "react"
-import { IMovie, ITrain } from "@/types/event/eventInterfaces" 
+import { IConcert, IMovie, ITrain } from "@/types/event/eventInterfaces" 
 import Modal from "@/components/Modal"
 
 type BaseProps = {
@@ -25,7 +25,7 @@ type BaseProps = {
   
   type ConcertProps = BaseProps & {
     type: 'concert';
-    event: IMovie; // need to change to iconcert
+    event: IConcert;
   };
   
   type Props = MovieProps | TrainProps | ConcertProps;
@@ -45,28 +45,30 @@ export default function EventDetailsPage({event, eventid, type, description} : P
         <main className="min-h-screen bg-gradient-to-b from-dark-2/70 to-30%">
             {/* Hero Section */}
             <section className="relative flex items-center justify-center py-8">
-                <div className="flex items-center gap-8">
-                    {/* Poster Left - Centered */}
-                    <div className="w-80 h-96 overflow-hidden rounded-4xl relative flex-shrink-0">
-                        <img 
-                            src={"/placeholder-image.png"} 
-                            alt={event?.title || "Event Poster"}
-                            className="w-full h-full object-cover bg-dark-2/60"
-                        />
-                    </div>
-
+                <div className="flex items-center gap-8 mt-20">
                     {/* Title and Info Right - Centered */}
-                    <div className="flex flex-col justify-center">
-                        <h1 className="text-5xl font-bold mb-4">
-                            {event?.title}
-                        </h1>
+                <div className="flex flex-col justify-center items-center relative py-8">
+                    {/* Subtle background accents */}
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-transparent via-gray-100 to-transparent"></div>
+                    
+                    {/* Enhanced title */}
+                    <h1 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-200 bg-clip-text text-transparent text-center leading-tight tracking-tight">
+                        {event?.title}
+                    </h1>
+                    
+                    {/* Description wrapper */}
+                    <div className="text-gray-300 text-lg leading-relaxed max-w-3xl text-center">
                         {description?.(event)}
                     </div>
+                    
+                    {/* Bottom accent */}
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent mt-6"></div>
+                </div>
                 </div>
             </section>
 
             {/* Content Section */}
-            <section className="px-8 py-8">
+            <section className="px-8 py-8 mt-10">
                 <div className="max-w-4xl mx-auto">
                 {/* Event Info Cards */}
                 <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -87,6 +89,7 @@ export default function EventDetailsPage({event, eventid, type, description} : P
                         <h3 className="font-semibold text-light-2">Location</h3>
                     </div>
                     { type === 'movie' && <p className="text-xl font-bold">{event.location}</p> }
+                    { type === 'concert' && <p className="text-xl font-bold">{event.location}</p> }
                     { type === 'train' && <p className="text-xl font-bold">{event.departure}</p> }
                     
                     </div>

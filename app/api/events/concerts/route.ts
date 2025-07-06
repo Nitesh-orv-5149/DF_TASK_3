@@ -4,7 +4,7 @@ import { Concert } from "@/libs/database/models/concert.model";
 export async function GET() {
   try {
     await connectToDatabase();
-    const concerts = await Concert.find({},"title poster rating type");
+    const concerts = await Concert.find({},"title poster performer type");
 
     return new Response(JSON.stringify(concerts), {
       status: 200,

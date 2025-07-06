@@ -32,3 +32,19 @@ export interface ITrain {
   availableSeats: number,
   seats: Seat[]
 }
+
+export interface IConcert {
+  _id?: string | ObjectId;
+  type?: string;
+  title: string;
+  location: string;
+  datetime: string;
+  price: number;
+  poster: string;
+  performer: string;
+  duration?: string;
+  availableSeats?: number;
+  seats?: Seat[];
+  createdAt?: string;
+  updatedAt?: string;
+}

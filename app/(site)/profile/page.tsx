@@ -6,6 +6,7 @@ import { signOut, useSession } from 'next-auth/react';
 import axios from 'axios';
 import { useUser } from '@/context/userContext';
 import { Island_Moments } from 'next/font/google';
+import { useRouter } from 'next/navigation';
 
 interface EditingState {
   username: boolean;
@@ -22,6 +23,8 @@ interface FormData {
 }
 
 export default function ProfileComponent() {
+
+  const router = useRouter()
 
   const { user, isLoading } = useUser();
   const [amount, setAmount] = useState<any>(null);
@@ -46,10 +49,8 @@ export default function ProfileComponent() {
 
   const fetchUserData = async () => {
     if (!user || isLoading) return;
-    console.log("Fetching user data for:", user.id);
     try {
       const response = await axios.get(`/api/user/${user.id}`)
-      console.log("User data fetched successfully:", response.data);
       const userData = response.data.user;
       
       // Store the original password
@@ -70,6 +71,12 @@ export default function ProfileComponent() {
   useEffect(() => {
     fetchUserData();
   },[user, isLoading])
+
+  useEffect(() => {
+    if (!isLoading && !user) {
+      router.push('/auth');
+    }
+  }, [user, isLoading]);
 
   const handleEdit = (field: keyof FormData) => {
     setIsEditing(prev => ({ ...prev, [field]: true }));
@@ -100,6 +107,15 @@ export default function ProfileComponent() {
     }
     return isPasswordVisible ? originalPassword : '●●●●●●●●';
   };
+
+  if (isLoading || !user) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <p className="text-light-2 text-xl">Loading...</p>
+      </div>
+    );
+  }
+  
 
   const EditableField = ({ label, field, type = "text" }: { label: string; field: keyof FormData; type?: string }) => (
     <div className="w-full max-w-md space-y-2">
